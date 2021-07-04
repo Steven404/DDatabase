@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,200;1,900&display=swap');
+/*font-family: 'Source Sans Pro', sans-serif;*/
+
+.root{
+    font-family: 'Source Sans Pro', sans-serif;
+    -fx-font-smoothing-type: gray;
+}
+
+.text{
+
+}

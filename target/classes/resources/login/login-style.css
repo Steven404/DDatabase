@@ -1,0 +1,46 @@
+@import "../base.css";
+@import "login-bundle.properties";
+
+JFXButton{
+    -fx-font-size: 1.4em;
+}
+
+.label{
+    -fx-font-family: 'Source Sans Pro', sans-serif;
+    -fx-font-weight: 700;
+    -fx-font-size: 1.8em;
+}
+
+AnchorPane{
+    -fx-background-color: #5AD8DB;
+}
+
+.text-field{
+    font-family: 'Source Sans Pro', sans-serif;
+    -fx-font-weight: 200;
+    -fx-font-size: 1.2em;
+    -fx-background-color: transparent;
+}
+
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 1 0 1;
+}
+
+.split-pane-divider {
+    -fx-background-color: transparent;
+}
+
+
+#usernameTxtField{
+    -fx-background-image:url('../icons-png/user_80px.png');
+    -fx-background-size: 2em;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left center;
+}
+
+#passwordTxtField{
+    -fx-background-image:url('../icons-png/password_80px.png');
+    -fx-background-size: 2em;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left center;
+}
