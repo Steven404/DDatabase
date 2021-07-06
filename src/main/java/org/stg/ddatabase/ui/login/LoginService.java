@@ -1,10 +1,12 @@
 package org.stg.ddatabase.ui.login;
 
-import javafx.beans.property.StringProperty;
+import com.google.gson.Gson;
 import javafx.concurrent.Task;
 import javafx.scene.Cursor;
 import okhttp3.*;
 import org.stg.ddatabase.application.DDatabase;
+import org.stg.ddatabase.ui.Employees.EmployeesController;
+import org.stg.ddatabase.ui.Employees.Token;
 
 import java.io.IOException;
 
@@ -14,7 +16,7 @@ public class LoginService {
 
     int responseCode;
 
-    private final StringProperty token = null;
+    Gson gson = new Gson();
 
     protected Task<Integer> login(LoginModel loginModel) throws IOException {
         return new Task<>() {
@@ -32,8 +34,8 @@ public class LoginService {
                 try (Response response = client.newCall(request).execute()) {
                     System.out.println(response.code());
                     responseCode = response.code();
-                    System.out.println(response.body().string());
-
+                    String responseToken= response.body().string();
+                    EmployeesController.userToken = gson.fromJson(responseToken, Token.class);
                     DDatabase.getScene().setCursor(Cursor.DEFAULT);
                 } catch (IOException e) {
                     e.printStackTrace();

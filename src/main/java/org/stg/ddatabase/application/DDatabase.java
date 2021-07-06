@@ -9,7 +9,6 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.stg.ddatabase.ui.FXMLResource;
-import org.stg.ddatabase.ui.login.LoginController;
 
 import java.io.IOException;
 import java.util.ResourceBundle;

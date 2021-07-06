@@ -2,7 +2,8 @@ package org.stg.ddatabase.ui;
 
 public enum FXMLResource {
 
-    LOGIN("/resources/login/login-view.fxml", "resources.login.login-bundle");
+    LOGIN("/resources/login/login-view.fxml", "resources.login.login-bundle"),
+    EMPLOYEES("/resources/employees/employees-view.fxml", "resources.employees.employees-bundle");
 
     private final String path;
     private final String bundleName;

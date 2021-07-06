@@ -20,6 +20,5 @@ public class Dialog {
         alert.initOwner(DDatabase.getWindow());
         alert.show();
         }
-
     }
 
