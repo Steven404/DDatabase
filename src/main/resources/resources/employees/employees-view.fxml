@@ -6,9 +6,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.stg.ddatabase.ui.Employees.EmployeesController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="600.0" prefWidth="800.0" stylesheets="@employees-style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stg.ddatabase.ui.Employees.EmployeesController">
+   <content>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane fx:id="sidebarTextPane" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="251.0" styleClass="sidebarTextPane">
+               <children>
+                  <AnchorPane fx:id="sidebarButtonPane" prefHeight="607.0" prefWidth="75.0" styleClass="sidebarButtonPane" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

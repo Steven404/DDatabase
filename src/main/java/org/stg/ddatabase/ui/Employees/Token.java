@@ -2,13 +2,17 @@ package org.stg.ddatabase.ui.Employees;
 
 public class Token {
 
-    private static String token;
+    private String token;
 
     public Token(String token) {
         this.token = token;
     }
 
-    protected static String getToken(){
+    protected String getToken(){
         return token;
+    }
+
+    public void setToken(String token){
+        this.token = token;
     }
 }

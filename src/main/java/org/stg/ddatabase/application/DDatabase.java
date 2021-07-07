@@ -17,8 +17,11 @@ public class DDatabase extends Application {
 
     private static Scene scene;
 
+    private static Stage mainStage;
+
     @Override
     public void start(Stage stage) throws IOException {
+        mainStage = stage;
         Rectangle2D screenBounds = Screen.getPrimary().getBounds();
         scene = new Scene(loadFXML(FXMLResource.LOGIN));
         stage.setScene(scene);
@@ -42,6 +45,10 @@ public class DDatabase extends Application {
     }
 
     public static Scene getScene(){ return scene;}
+
+    public static Stage getMainStage(){
+        return mainStage;
+    }
 
     public static void main(String[] args) {
         launch();

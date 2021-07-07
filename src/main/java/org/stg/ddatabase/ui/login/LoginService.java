@@ -35,7 +35,7 @@ public class LoginService {
                     System.out.println(response.code());
                     responseCode = response.code();
                     String responseToken= response.body().string();
-                    EmployeesController.userToken = gson.fromJson(responseToken, Token.class);
+                    EmployeesController.token = gson.fromJson(responseToken,Token.class);
                     DDatabase.getScene().setCursor(Cursor.DEFAULT);
                 } catch (IOException e) {
                     e.printStackTrace();
