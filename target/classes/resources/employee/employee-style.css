@@ -1,3 +1,6 @@
+@import "../base.css";
+@import "employee-bundle.properties";
+
 .sidebarTextPane{
     -fx-background-color: #34e7e4;
 }

@@ -7,6 +7,7 @@ import javafx.animation.FadeTransition;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -14,7 +15,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.stg.ddatabase.application.DDatabase;
 import org.stg.ddatabase.ui.FXMLResource;
@@ -90,7 +90,7 @@ public class LoginController {
                         loginButton.setDisable(false);
                         passwordTxtField.setDisable(false);
                         usernameTxtField.setDisable(false);
-                        sceneFadeTransition();
+                        outroSceneFadeTransition();
                         break;
                     case 404:
                         dialog = new Dialog(Alert.AlertType.WARNING, "Warning", "User is not signed up.");
@@ -136,14 +136,15 @@ public class LoginController {
 
     }
 
-    private void sceneFadeTransition(){
+    private void outroSceneFadeTransition(){
+        DDatabase.getScene().setCursor(Cursor.WAIT);
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(250));
         fadeTransition.setNode(hBox);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
         fadeTransition.setOnFinished(event -> {
-            hBox.opacityProperty().set(0);
             try {
+                hBox.opacityProperty().set(0);
                 switchToEmployeeView();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -153,7 +154,7 @@ public class LoginController {
     }
 
     private void switchToEmployeeView() throws IOException {
-        Scene scene = new Scene(loadFXML(FXMLResource.EMPLOYEES));
+        Scene scene = new Scene(loadFXML(FXMLResource.EMPLOYEE));
         DDatabase.getMainStage().setScene(scene);
         DDatabase.getMainStage().show();
     }

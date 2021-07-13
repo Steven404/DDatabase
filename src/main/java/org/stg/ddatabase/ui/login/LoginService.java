@@ -4,9 +4,9 @@ import com.google.gson.Gson;
 import javafx.concurrent.Task;
 import javafx.scene.Cursor;
 import okhttp3.*;
+import org.json.JSONObject;
+import org.stg.ddatabase.api.Token;
 import org.stg.ddatabase.application.DDatabase;
-import org.stg.ddatabase.ui.Employees.EmployeesController;
-import org.stg.ddatabase.ui.Employees.Token;
 
 import java.io.IOException;
 
@@ -32,10 +32,10 @@ public class LoginService {
                         .post(formBody)
                         .build();
                 try (Response response = client.newCall(request).execute()) {
-                    System.out.println(response.code());
                     responseCode = response.code();
                     String responseToken= response.body().string();
-                    EmployeesController.token = gson.fromJson(responseToken,Token.class);
+                    JSONObject jsonObject = new JSONObject(responseToken);
+                    Token.JWT.setToken(jsonObject.getString("token"));
                     DDatabase.getScene().setCursor(Cursor.DEFAULT);
                 } catch (IOException e) {
                     e.printStackTrace();

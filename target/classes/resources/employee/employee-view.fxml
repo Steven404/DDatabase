@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="600.0" prefWidth="900.0" stylesheets="@employee-style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stg.ddatabase.ui.employee.EmployeeController">
+   <content>
+      <AnchorPane fx:id="mainPane">
+         <children>
+            <AnchorPane fx:id="sidebarTextPane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="250.0" styleClass="sidebarTextPane">
+               <children>
+                  <AnchorPane fx:id="sidebarButtonPane" prefHeight="600.0" prefWidth="50.0" styleClass="sidebarButtonPane" />
+               </children>
+            </AnchorPane>
+            <JFXButton buttonType="RAISED" layoutX="358.0" layoutY="285.0" prefHeight="31.0" prefWidth="100.0" text="%button.refreshUsers" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

@@ -1,4 +1,4 @@
-package org.stg.ddatabase.ui.Employees.authorization;
+package org.stg.ddatabase.ui.employee.authorization;
 
 public class Token2 {
 
