@@ -2,9 +2,19 @@
 @import "employee-bundle.properties";
 
 .sidebarTextPane{
-    -fx-background-color: #34e7e4;
+    -fx-background-color: #4bcffa;
 }
 
 .sidebarButtonPane{
-    -fx-background-color: #00d8d6;
+    -fx-background-color:#0fbcf9;
+}
+
+JFXHamburger:hover{
+    -fx-background-color: #d2dae2;
+}
+
+JFXButton{
+    -fx-font-family: 'Source Sans Pro', sans-serif;
+    -fx-font-weight: 400;
+    -fx-font-size: 1.2em;
 }

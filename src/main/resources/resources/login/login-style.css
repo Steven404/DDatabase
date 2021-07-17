@@ -30,7 +30,6 @@ AnchorPane{
     -fx-background-color: transparent;
 }
 
-
 #usernameTxtField{
     -fx-background-image:url('../icons-png/user_80px.png');
     -fx-background-size: 2em;
