@@ -24,7 +24,7 @@ public class EmployeeController {
     JFXHamburger hamburger;
 
     @FXML
-    AnchorPane sidebarTextPane, sidebarButtonPane, mainPane;
+    AnchorPane sidebarTextPane, sidebarButtonPane, mainPane, darkPane;
 
     @FXML
     JFXButton updateEmployeeButton;
@@ -64,6 +64,12 @@ public class EmployeeController {
     @FXML
     TableColumn<EmployeeModel, String> PhoneNoTableColumn;
 
+    @FXML
+    TableColumn<EmployeeModel, String> EmailTableColumn;
+
+    @FXML
+    TableColumn<EmployeeModel, String> IBANTableColumn;
+
 
     @FXML
     public void initialize() {
@@ -80,6 +86,7 @@ public class EmployeeController {
             translateTransition = new TranslateTransition(Duration.seconds(0.5), sidebarTextPane);
             translateTransition.setByX(-200);
             translateTransition.play();
+
         } else if (sidebarTextPane.getTranslateX() == -200) {
             translateTransition = new TranslateTransition(Duration.seconds(0.5), sidebarTextPane);
             translateTransition.setByX(+200);
@@ -145,6 +152,8 @@ public class EmployeeController {
         AFMTableColumn.setCellValueFactory(new PropertyValueFactory<>("AFM"));
         AMKATableColumn.setCellValueFactory(new PropertyValueFactory<>("AMKA"));
         PhoneNoTableColumn.setCellValueFactory(new PropertyValueFactory<>("PhoneNo"));
+        EmailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        IBANTableColumn.setCellValueFactory(new PropertyValueFactory<>("IBAN"));
 
         employeesTable.setItems(employees);
     }

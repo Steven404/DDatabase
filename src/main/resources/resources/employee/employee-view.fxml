@@ -7,11 +7,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" prefHeight="600.0" prefWidth="900.0" stylesheets="@employee-style.css" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stg.ddatabase.ui.employee.EmployeeController">
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="600.0" prefWidth="1000.0" stylesheets="@employee-style.css" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stg.ddatabase.ui.employee.EmployeeController">
    <content>
-      <AnchorPane fx:id="mainPane">
+      <AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="1000.0">
          <children>
-            <TableView fx:id="employeesTable" layoutX="50.0" layoutY="258.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0">
+            <TableView fx:id="employeesTable" layoutX="50.0" layoutY="258.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
                <columns>
                   <TableColumn fx:id="IDTableColumn" minWidth="0.0" prefWidth="30.0" text="ID" />
                   <TableColumn fx:id="firstNameTableColumn" text="Όνομα" />
@@ -22,6 +22,8 @@
                   <TableColumn fx:id="AFMTableColumn" minWidth="0.0" prefWidth="76.0" text="ΑΦΜ" />
                   <TableColumn fx:id="AMKATableColumn" minWidth="0.0" prefWidth="94.0" text="ΑΜΚΑ" />
                   <TableColumn fx:id="PhoneNoTableColumn" minWidth="0.0" prefWidth="94.0" text="Τηλέφωνο" />
+                  <TableColumn fx:id="EmailTableColumn" minWidth="0.0" prefWidth="94.0" text="email" />
+                  <TableColumn fx:id="IBANTableColumn" minWidth="0.0" prefWidth="102.0" text="IBAN" />
                </columns>
             </TableView>
             <AnchorPane fx:id="sidebarTextPane" prefHeight="600.0" prefWidth="250.0" styleClass="sidebarTextPane" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -48,6 +50,7 @@
                   <DropShadow blurType="ONE_PASS_BOX" />
                </effect>
             </AnchorPane>
+            <AnchorPane fx:id="darkPane" layoutX="250.0" opacity="0.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </content>

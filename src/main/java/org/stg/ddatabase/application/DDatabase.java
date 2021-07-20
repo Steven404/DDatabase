@@ -22,11 +22,10 @@ public class DDatabase extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         mainStage = stage;
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
         scene = new Scene(loadFXML(FXMLResource.LOGIN));
         stage.setScene(scene);
         stage.show();
-        scene.getWindow().setWidth(900);
+        scene.getWindow().setWidth(1000);
         scene.getWindow().setHeight(600);
         stage.centerOnScreen();
     }
