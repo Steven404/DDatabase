@@ -18,3 +18,15 @@ JFXButton{
     -fx-font-weight: 400;
     -fx-font-size: 1.2em;
 }
+
+.table-view .column-header{
+    -fx-font-family: 'Source Sans Pro', sans-serif;
+    -fx-font-weight: 700;
+    -fx-text-alignment: CENTER;
+}
+
+.table-view .table-column{
+    -fx-text-alignment: center;
+    -fx-alignment: CENTER;
+    -fx-font-family: 'Source Sans Pro', sans-serif;
+}

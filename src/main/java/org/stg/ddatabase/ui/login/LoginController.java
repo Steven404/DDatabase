@@ -119,7 +119,7 @@ public class LoginController {
                 }
             });
             loginTask.setOnFailed(workerStateEvent -> {
-                Dialog dialog = new Dialog(Alert.AlertType.ERROR, "Error", "Failed to connect to API");
+                Dialog dialog = new Dialog(Alert.AlertType.ERROR, "Error", "Failed to run the task");
                 dialog.show();
                 signupButton.setDisable(false);
                 loginButton.setDisable(false);
