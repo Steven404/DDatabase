@@ -19,6 +19,13 @@ JFXButton{
     -fx-font-size: 1.2em;
 }
 
+JFXTextField{
+    font-family: 'Source Sans Pro', sans-serif;
+    -fx-font-weight: 200;
+    -fx-font-size: 0.9em;
+    -fx-background-color: transparent;
+}
+
 .table-view .column-header{
     -fx-font-family: 'Source Sans Pro', sans-serif;
     -fx-font-weight: 700;

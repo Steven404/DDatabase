@@ -4,6 +4,7 @@ import com.jfoenix.controls.*;
 import javafx.animation.TranslateTransition;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,12 +14,21 @@ import javafx.util.Duration;
 import org.stg.ddatabase.api.Authentication;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 import static org.stg.ddatabase.ui.employee.EmployeeModel.employees;
 
 public class EmployeeController {
     private EmployeeService employeeService = new EmployeeService();
+    private EmployeeModel employeeModel;
+
+    @FXML
+    JFXTextField IDTextField,FirstNameTextField,LastNameTextField,FatherNameTextField;
+
+    @FXML
+    DatePicker RecruitmentDatePicker,UntilDatePicker;
 
     @FXML
     JFXHamburger hamburger;
@@ -27,10 +37,8 @@ public class EmployeeController {
     AnchorPane sidebarTextPane, sidebarButtonPane, mainPane, darkPane;
 
     @FXML
-    JFXButton updateEmployeeButton;
+    JFXButton updateEmployeeButton,EditButton;
 
-    @FXML
-    JFXButton insertEmployeeButton;
 
     TranslateTransition translateTransition;
 
@@ -41,55 +49,60 @@ public class EmployeeController {
     TableColumn<EmployeeModel, Integer> IDTableColumn;
 
     @FXML
-    TableColumn<EmployeeModel, String> firstNameTableColumn;
+    TableColumn<EmployeeModel, String> firstNameTableColumn,lastNameTableColumn,fatherNameTableColumn,AFMTableColumn,AMKATableColumn,PhoneNoTableColumn,EmailTableColumn,IBANTableColumn;
 
     @FXML
-    TableColumn<EmployeeModel, String> lastNameTableColumn;
-
-    @FXML
-    TableColumn<EmployeeModel, String> fatherNameTableColumn;
-
-    @FXML
-    TableColumn<EmployeeModel, Date> recruitmentDateTableColumn;
-
-    @FXML
-    TableColumn<EmployeeModel, Date> untilDateTableColumn;
-
-    @FXML
-    TableColumn<EmployeeModel, String> AFMTableColumn;
-
-    @FXML
-    TableColumn<EmployeeModel, String> AMKATableColumn;
-
-    @FXML
-    TableColumn<EmployeeModel, String> PhoneNoTableColumn;
-
-    @FXML
-    TableColumn<EmployeeModel, String> EmailTableColumn;
-
-    @FXML
-    TableColumn<EmployeeModel, String> IBANTableColumn;
-
+    TableColumn<EmployeeModel, Date> recruitmentDateTableColumn, untilDateTableColumn;
 
     @FXML
     public void initialize() {
         sidebarTextPane.setTranslateX(-200);
+        darkPane.setDisable(true);
         hamburger.setOnMouseClicked(event -> {
             hamburgerPressed();
         });
         runEmployeeService();
         initializeTreeTableView();
+        employeesTable.setOnMouseClicked(event -> tableClicked());
+        EditButton.setOnAction(event -> editMode());
+    }
+
+    private void editMode(){
+        if (employeesTable.getTranslateX() == 320) {
+            translateTransition = new TranslateTransition(Duration.seconds(0.5), employeesTable);
+            translateTransition.setByY(+110);
+            translateTransition.play();
+        } else if (employeesTable.getTranslateX() == 430){
+            translateTransition = new TranslateTransition(Duration.seconds(0.5), employeesTable);
+            translateTransition.setByY(-110);
+            translateTransition.play();
+        }
+    }
+
+    private void tableClicked(){
+        employeeModel = employeesTable.getSelectionModel().getSelectedItem();
+
+        IDTextField.setText(String.valueOf(employeeModel.getID()));
+        FirstNameTextField.setText(employeeModel.getFirstName());
+        LastNameTextField.setText(employeeModel.getLastName());
+        FatherNameTextField.setText(employeeModel.getFatherName());
+        RecruitmentDatePicker.setValue(employeeModel.getRecruitmentDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        UntilDatePicker.setValue(employeeModel.getUntilDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
     }
 
     private void hamburgerPressed() {
         if (sidebarTextPane.getTranslateX() == 0) {
             translateTransition = new TranslateTransition(Duration.seconds(0.5), sidebarTextPane);
             translateTransition.setByX(-200);
+            darkPane.setDisable(true);
+            darkPane.setOpacity(0);
             translateTransition.play();
 
         } else if (sidebarTextPane.getTranslateX() == -200) {
             translateTransition = new TranslateTransition(Duration.seconds(0.5), sidebarTextPane);
             translateTransition.setByX(+200);
+            darkPane.setDisable(false);
+            darkPane.setOpacity(0.5);
             translateTransition.play();
         }
 

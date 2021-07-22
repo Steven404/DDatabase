@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
@@ -11,7 +12,8 @@
    <content>
       <AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="1000.0">
          <children>
-            <TableView fx:id="employeesTable" layoutX="50.0" layoutY="258.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
+            <AnchorPane fx:id="darkPane" layoutX="250.0" opacity="0.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <TableView fx:id="employeesTable" layoutX="50.0" layoutY="320.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="278.0" prefWidth="948.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="320.0">
                <columns>
                   <TableColumn fx:id="IDTableColumn" minWidth="0.0" prefWidth="30.0" text="ID" />
                   <TableColumn fx:id="firstNameTableColumn" text="Όνομα" />
@@ -23,13 +25,49 @@
                   <TableColumn fx:id="AMKATableColumn" minWidth="0.0" prefWidth="94.0" text="ΑΜΚΑ" />
                   <TableColumn fx:id="PhoneNoTableColumn" minWidth="0.0" prefWidth="94.0" text="Τηλέφωνο" />
                   <TableColumn fx:id="EmailTableColumn" minWidth="0.0" prefWidth="94.0" text="email" />
-                  <TableColumn fx:id="IBANTableColumn" minWidth="0.0" prefWidth="102.0" text="IBAN" />
+                  <TableColumn fx:id="IBANTableColumn" minWidth="0.0" prefWidth="150.0" text="IBAN" />
                </columns>
             </TableView>
+            <VBox alignment="CENTER" layoutX="50.0" prefHeight="321.0" prefWidth="948.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXTextField fx:id="IDTextField" alignment="CENTER" editable="false" labelFloat="true" maxWidth="-Infinity" prefWidth="100.0" promptText="ID" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="948.0" spacing="25.0">
+                     <children>
+                        <JFXTextField fx:id="FirstNameTextField" alignment="CENTER" editable="false" labelFloat="true" prefWidth="100.0" promptText="%textfield.firstname" />
+                        <JFXTextField fx:id="LastNameTextField" alignment="CENTER" labelFloat="true" layoutX="497.0" layoutY="60.0" prefWidth="100.0" promptText="%textfield.lastname" />
+                        <JFXTextField fx:id="FatherNameTextField" alignment="CENTER" labelFloat="true" layoutX="559.0" layoutY="60.0" prefWidth="100.0" promptText="%textfield.fathername" />
+                        <JFXTextField fx:id="EmailTextField" alignment="CENTER" labelFloat="true" prefWidth="100.0" promptText="email" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="948.0" spacing="25.0">
+                     <children>
+                        <DatePicker fx:id="RecruitmentDatePicker" prefWidth="100.0" promptText="Ημ/νία έν." />
+                        <DatePicker fx:id="UntilDatePicker" layoutX="414.0" layoutY="60.0" prefWidth="100.0" promptText="Ημ/νία λήξ." />
+                        <JFXTextField fx:id="AFMTextField" alignment="CENTER" editable="false" labelFloat="true" prefWidth="100.0" promptText="%textfield.afm" />
+                        <JFXTextField fx:id="PhoneNoTextField" alignment="CENTER" labelFloat="true" prefWidth="100.0" promptText="%textfield.phoneno" />
+                     </children></HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="171.0" prefHeight="100.0" prefWidth="948.0" spacing="25.0">
+                     <children>
+                        <JFXTextField fx:id="AMKATextField" alignment="CENTER" editable="false" labelFloat="true" prefWidth="100.0" promptText="%textfield.amka" />
+                        <JFXTextField fx:id="IBANTextField" alignment="CENTER" labelFloat="true" maxWidth="-Infinity" prefWidth="200.0" promptText="IBAN" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="228.0" prefHeight="100.0" prefWidth="948.0" spacing="25.0">
+                     <children>
+                        <JFXButton buttonType="RAISED" text="%button.insert" />
+                        <JFXButton buttonType="RAISED" text="%button.update" />
+                        <JFXButton buttonType="RAISED" layoutX="492.0" layoutY="30.0" text="%button.delete" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" top="20.0" />
+               </padding>
+            </VBox>
             <AnchorPane fx:id="sidebarTextPane" prefHeight="600.0" prefWidth="250.0" styleClass="sidebarTextPane" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton fx:id="updateEmployeeButton" layoutX="50.0" layoutY="100.0" prefHeight="50.0" prefWidth="200.0" text="%button.updateEmployee" />
-                  <JFXButton fx:id="insertEmployeeButton" layoutX="50.0" layoutY="50.0" prefHeight="50.0" prefWidth="200.0" text="%button.insertEmployee" />
+                  <JFXButton fx:id="EditButton" layoutX="50.0" layoutY="50.0" prefHeight="50.0" prefWidth="200.0" text="%button.insertEdit" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="sidebarButtonPane" prefHeight="600.0" prefWidth="50.0" styleClass="sidebarButtonPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -37,7 +75,7 @@
                   <JFXHamburger fx:id="hamburger" prefHeight="50.0" prefWidth="50.0" />
                   <ImageView fitHeight="30.0" fitWidth="50.0" layoutX="10.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons-png/new_96px.png" />
+                        <Image url="@../icons-png/edit_48px.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="30.0" fitWidth="50.0" layoutX="10.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
@@ -50,7 +88,6 @@
                   <DropShadow blurType="ONE_PASS_BOX" />
                </effect>
             </AnchorPane>
-            <AnchorPane fx:id="darkPane" layoutX="250.0" opacity="0.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </content>
