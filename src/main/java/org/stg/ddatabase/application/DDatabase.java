@@ -25,7 +25,7 @@ public class DDatabase extends Application {
         scene = new Scene(loadFXML(FXMLResource.LOGIN));
         stage.setScene(scene);
         stage.show();
-        scene.getWindow().setWidth(1050);
+        scene.getWindow().setWidth(1000);
         scene.getWindow().setHeight(600);
         stage.centerOnScreen();
     }

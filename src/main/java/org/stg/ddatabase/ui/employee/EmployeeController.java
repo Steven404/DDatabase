@@ -10,25 +10,25 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import org.stg.ddatabase.api.Authentication;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-import static org.stg.ddatabase.ui.employee.EmployeeModel.employees;
+import static org.stg.ddatabase.ui.employee.EmployeeTableModel.employees;
 
 public class EmployeeController {
-    private EmployeeService employeeService = new EmployeeService();
-    private EmployeeModel employeeModel;
+    private final EmployeeService employeeService = new EmployeeService();
 
     @FXML
-    JFXTextField IDTextField,FirstNameTextField,LastNameTextField,FatherNameTextField;
+    JFXTextField idTextField, firstNameTextField, lastNameTextField, fatherNameTextField,
+            emailTextField, afmTextField, phoneNoTextField, amkaTextField, ibanTextField, restDaysTextField;
 
     @FXML
-    DatePicker RecruitmentDatePicker,UntilDatePicker;
+    DatePicker recruitmentDatePicker, untilDatePicker;
 
     @FXML
     JFXHamburger hamburger;
@@ -37,57 +37,58 @@ public class EmployeeController {
     AnchorPane sidebarTextPane, sidebarButtonPane, mainPane, darkPane;
 
     @FXML
-    JFXButton updateEmployeeButton,EditButton;
+    JFXButton updateEmployeeButton;
 
 
     TranslateTransition translateTransition;
 
     @FXML
-    TableView<EmployeeModel> employeesTable;
+    TableView<EmployeeTableModel> employeesTable;
 
     @FXML
-    TableColumn<EmployeeModel, Integer> IDTableColumn;
+    TableColumn<EmployeeTableModel, Integer> idTableColumn;
 
     @FXML
-    TableColumn<EmployeeModel, String> firstNameTableColumn,lastNameTableColumn,fatherNameTableColumn,AFMTableColumn,AMKATableColumn,PhoneNoTableColumn,EmailTableColumn,IBANTableColumn;
+    TableColumn<EmployeeTableModel, String> firstNameTableColumn, lastNameTableColumn, fatherNameTableColumn,
+            AFMTableColumn, AMKATableColumn, PhoneNoTableColumn, EmailTableColumn, IBANTableColumn;
 
     @FXML
-    TableColumn<EmployeeModel, Date> recruitmentDateTableColumn, untilDateTableColumn;
+    TableColumn<EmployeeTableModel, Integer> restDaysTableColumn;
+
+    @FXML
+    TableColumn<EmployeeTableModel, Date> recruitmentDateTableColumn, untilDateTableColumn;
+
+    @FXML
+    VBox vbox;
 
     @FXML
     public void initialize() {
         sidebarTextPane.setTranslateX(-200);
         darkPane.setDisable(true);
-        hamburger.setOnMouseClicked(event -> {
-            hamburgerPressed();
-        });
+        hamburger.setOnMouseClicked(event -> hamburgerPressed());
         runEmployeeService();
         initializeTreeTableView();
         employeesTable.setOnMouseClicked(event -> tableClicked());
-        EditButton.setOnAction(event -> editMode());
     }
 
-    private void editMode(){
-        if (employeesTable.getTranslateX() == 320) {
-            translateTransition = new TranslateTransition(Duration.seconds(0.5), employeesTable);
-            translateTransition.setByY(+110);
-            translateTransition.play();
-        } else if (employeesTable.getTranslateX() == 430){
-            translateTransition = new TranslateTransition(Duration.seconds(0.5), employeesTable);
-            translateTransition.setByY(-110);
-            translateTransition.play();
+
+    private void tableClicked() {
+        if (employeesTable.getSelectionModel().getSelectedItem() == null){
+            return;
         }
-    }
-
-    private void tableClicked(){
-        employeeModel = employeesTable.getSelectionModel().getSelectedItem();
-
-        IDTextField.setText(String.valueOf(employeeModel.getID()));
-        FirstNameTextField.setText(employeeModel.getFirstName());
-        LastNameTextField.setText(employeeModel.getLastName());
-        FatherNameTextField.setText(employeeModel.getFatherName());
-        RecruitmentDatePicker.setValue(employeeModel.getRecruitmentDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        UntilDatePicker.setValue(employeeModel.getUntilDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        EmployeeTableModel employeeTableModel = employeesTable.getSelectionModel().getSelectedItem();
+        idTextField.setText(String.valueOf(employeeTableModel.getID()));
+        firstNameTextField.setText(employeeTableModel.getFirstName());
+        lastNameTextField.setText(employeeTableModel.getLastName());
+        fatherNameTextField.setText(employeeTableModel.getFatherName());
+        recruitmentDatePicker.setValue(employeeTableModel.getRecruitmentDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        untilDatePicker.setValue(employeeTableModel.getUntilDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        phoneNoTextField.setText(employeeTableModel.getPhoneNo());
+        emailTextField.setText(employeeTableModel.getEmail());
+        afmTextField.setText(employeeTableModel.getAFM());
+        amkaTextField.setText(employeeTableModel.getAMKA());
+        ibanTextField.setText(employeeTableModel.getIBAN());
+        restDaysTextField.setText(String.valueOf(employeeTableModel.getRestDays()));
     }
 
     private void hamburgerPressed() {
@@ -122,12 +123,12 @@ public class EmployeeController {
     }
 
     private void initializeTreeTableView() {
-        IDTableColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
         firstNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         fatherNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("FatherName"));
         recruitmentDateTableColumn.setCellFactory(column -> {
-            TableCell<EmployeeModel, Date> cell = new TableCell<EmployeeModel, Date>() {
+            TableCell<EmployeeTableModel, Date> cell = new TableCell<EmployeeTableModel, Date>() {
                 private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
                 @Override
@@ -145,7 +146,7 @@ public class EmployeeController {
         });
         recruitmentDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("RecruitmentDate"));
         untilDateTableColumn.setCellFactory(column -> {
-            TableCell<EmployeeModel, Date> cell = new TableCell<EmployeeModel, Date>() {
+            TableCell<EmployeeTableModel, Date> cell = new TableCell<EmployeeTableModel, Date>() {
                 private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
                 @Override
@@ -167,6 +168,7 @@ public class EmployeeController {
         PhoneNoTableColumn.setCellValueFactory(new PropertyValueFactory<>("PhoneNo"));
         EmailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         IBANTableColumn.setCellValueFactory(new PropertyValueFactory<>("IBAN"));
+        restDaysTableColumn.setCellValueFactory(new PropertyValueFactory<>("restDays"));
 
         employeesTable.setItems(employees);
     }

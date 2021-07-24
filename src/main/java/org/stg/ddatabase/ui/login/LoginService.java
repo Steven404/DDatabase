@@ -29,7 +29,7 @@ public class LoginService {
                         .add("password", loginModel.getPassword())
                         .build();
                 Request request = new Request.Builder()
-                        .url(Routes.LOGIN.getRoute())
+                        .url(Routes.LOG_IN.getRoute())
                         .post(formBody)
                         .build();
                 try (Response response = client.newCall(request).execute()) {
