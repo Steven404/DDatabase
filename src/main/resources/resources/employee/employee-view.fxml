@@ -34,23 +34,23 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="948.0" spacing="25.0">
                      <children>
                         <JFXTextField fx:id="firstNameTextField" alignment="CENTER" editable="false" labelFloat="true" prefWidth="100.0" promptText="%textfield.firstname" />
-                        <JFXTextField fx:id="lastNameTextField" alignment="CENTER" labelFloat="true" layoutX="497.0" layoutY="60.0" prefWidth="100.0" promptText="%textfield.lastname" />
-                        <JFXTextField fx:id="fatherNameTextField" alignment="CENTER" labelFloat="true" layoutX="559.0" layoutY="60.0" prefWidth="100.0" promptText="%textfield.fathername" />
-                        <JFXTextField fx:id="emailTextField" alignment="CENTER" labelFloat="true" prefWidth="100.0" promptText="email" />
+                        <JFXTextField fx:id="lastNameTextField" alignment="CENTER" editable="false" labelFloat="true" layoutX="497.0" layoutY="60.0" prefWidth="100.0" promptText="%textfield.lastname" />
+                        <JFXTextField fx:id="fatherNameTextField" alignment="CENTER" editable="false" labelFloat="true" layoutX="559.0" layoutY="60.0" prefWidth="100.0" promptText="%textfield.fathername" />
+                        <JFXTextField fx:id="emailTextField" alignment="CENTER" editable="false" labelFloat="true" prefWidth="100.0" promptText="email" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="948.0" spacing="25.0">
                      <children>
-                        <DatePicker fx:id="recruitmentDatePicker" prefWidth="100.0" promptText="Ημ/νία έν." />
-                        <DatePicker fx:id="untilDatePicker" layoutX="414.0" layoutY="60.0" prefWidth="100.0" promptText="Ημ/νία λήξ." />
+                        <DatePicker fx:id="recruitmentDatePicker" editable="false" prefWidth="100.0" promptText="Ημ/νία έν." />
+                        <DatePicker fx:id="untilDatePicker" editable="false" layoutX="414.0" layoutY="60.0" prefWidth="100.0" promptText="Ημ/νία λήξ." />
                         <JFXTextField fx:id="afmTextField" alignment="CENTER" editable="false" labelFloat="true" prefWidth="100.0" promptText="%textfield.afm" />
-                        <JFXTextField fx:id="phoneNoTextField" alignment="CENTER" labelFloat="true" prefWidth="100.0" promptText="%textfield.phoneno" />
+                        <JFXTextField fx:id="phoneNoTextField" alignment="CENTER" editable="false" labelFloat="true" prefWidth="100.0" promptText="%textfield.phoneno" />
                      </children></HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="171.0" prefHeight="100.0" prefWidth="948.0" spacing="25.0">
                      <children>
                         <JFXTextField fx:id="amkaTextField" alignment="CENTER" editable="false" labelFloat="true" prefWidth="100.0" promptText="%textfield.amka" />
-                        <JFXTextField fx:id="ibanTextField" alignment="CENTER" labelFloat="true" maxWidth="-Infinity" prefWidth="200.0" promptText="IBAN" />
-                        <JFXTextField fx:id="restDaysTextField" alignment="CENTER" labelFloat="true" layoutX="447.0" layoutY="28.0" maxWidth="-Infinity" prefWidth="75.0" promptText="%textfield.restdays" />
+                        <JFXTextField fx:id="ibanTextField" alignment="CENTER" editable="false" labelFloat="true" maxWidth="-Infinity" prefWidth="200.0" promptText="IBAN" />
+                        <JFXTextField fx:id="restDaysTextField" alignment="CENTER" editable="false" labelFloat="true" layoutX="447.0" layoutY="28.0" maxWidth="-Infinity" prefWidth="75.0" promptText="%textfield.restdays" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="228.0" prefHeight="100.0" prefWidth="948.0" spacing="25.0">
@@ -65,12 +65,13 @@
                   <Insets bottom="10.0" top="20.0" />
                </padding>
             </VBox>
+            <AnchorPane fx:id="darkPane" layoutX="50.0" opacity="0.0" prefHeight="598.0" prefWidth="948.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <AnchorPane fx:id="sidebarTextPane" prefHeight="600.0" prefWidth="250.0" styleClass="sidebarTextPane" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton fx:id="resetSidebarButton" layoutX="50.0" layoutY="200.0" prefHeight="50.0" prefWidth="200.0" text="%button.resetWindow" />
                   <JFXButton fx:id="editSidebarButton" layoutX="50.0" layoutY="50.0" prefHeight="50.0" prefWidth="200.0" text="%button.insertEdit" />
                   <JFXButton fx:id="searchSidebarButton" layoutX="50.0" layoutY="150.0" prefHeight="50.0" prefWidth="200.0" text="%button.searchEmployee" />
-                  <JFXButton fx:id="searchSidebarButton1" layoutX="50.0" layoutY="100.0" prefHeight="50.0" prefWidth="200.0" text="%button.restDays" />
+                  <JFXButton fx:id="restDaysSidebarButton" layoutX="50.0" layoutY="100.0" prefHeight="50.0" prefWidth="200.0" text="%button.restDays" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="sidebarButtonPane" prefHeight="600.0" prefWidth="50.0" styleClass="sidebarButtonPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -101,7 +102,6 @@
                   <DropShadow blurType="ONE_PASS_BOX" />
                </effect>
             </AnchorPane>
-            <AnchorPane fx:id="darkPane" layoutX="250.0" opacity="0.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </content>

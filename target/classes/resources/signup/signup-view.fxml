@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="resources.signup.SignupController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="600.0" prefWidth="400.0" stylesheets="@signup-style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stg.ddatabase.ui.signup.SignupController">
+   <content>
+      <VBox alignment="CENTER" fillWidth="false" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" styleClass="windowLabel" text="%label.signup">
+               <padding>
+                  <Insets top="20.0" />
+               </padding></Label>
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <JFXTextField alignment="CENTER" focusColor="#7f8c8d" labelFloat="true" promptText="%textfield.username" styleClass="textfield" unFocusColor="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <JFXTextField alignment="CENTER" focusColor="#7f8c8d" labelFloat="true" promptText="%textfield.lastname" styleClass="textfield" unFocusColor="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <JFXTextField alignment="CENTER" focusColor="#7f8c8d" labelFloat="true" promptText="%textfield.username" styleClass="textfield" unFocusColor="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <JFXPasswordField alignment="CENTER" focusColor="#7f8c8d" promptText="%textfield.password" styleClass="textfield" unFocusColor="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="330.0" spacing="50.0">
+               <VBox.margin>
+                  <Insets top="100.0" />
+               </VBox.margin>
+               <children>
+                  <JFXButton prefWidth="80.0" text="%button.signup" />
+                  <JFXButton fx:id="returnButton" prefWidth="80.0" ripplerFill="WHITE" text="%button.return" />
+               </children>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets top="100.0" />
+         </opaqueInsets></VBox>
+   </content>
+</ScrollPane>

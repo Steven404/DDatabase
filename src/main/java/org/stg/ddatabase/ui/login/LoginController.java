@@ -56,6 +56,13 @@ public class LoginController {
         usernameTxtField.textProperty().bindBidirectional(loginModel.usernameProperty());
         passwordTxtField.textProperty().bindBidirectional(loginModel.passwordProperty());
         loginButton.setOnAction(event -> loginButtonAction());
+        signupButton.setOnAction(event -> {
+            try {
+                switchToSignUpView();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private void loginButtonAction() {
@@ -157,6 +164,15 @@ public class LoginController {
         Scene scene = new Scene(loadFXML(FXMLResource.EMPLOYEE));
         DDatabase.getMainStage().setScene(scene);
         DDatabase.getMainStage().show();
+    }
+
+    private void switchToSignUpView() throws IOException {
+        Scene scene = new Scene(loadFXML(FXMLResource.SIGN_UP));
+        DDatabase.getMainStage().setScene(scene);
+        DDatabase.getMainStage().show();
+        scene.getWindow().setWidth(400);
+        scene.getWindow().setHeight(600);
+        DDatabase.getMainStage().centerOnScreen();
     }
 
     private static Parent loadFXML(FXMLResource fxmlResource) throws IOException {

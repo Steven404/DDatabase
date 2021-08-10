@@ -9,6 +9,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.stg.ddatabase.ui.FXMLResource;
+import org.stg.ddatabase.ui.dialog.DLG;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -25,9 +26,16 @@ public class DDatabase extends Application {
         scene = new Scene(loadFXML(FXMLResource.LOGIN));
         stage.setScene(scene);
         stage.show();
-        scene.getWindow().setWidth(1000);
+        scene.getWindow().setWidth(400);
         scene.getWindow().setHeight(600);
         stage.centerOnScreen();
+        setDialogOwners();
+    }
+
+    private void setDialogOwners(){
+        DLG.INFORMATION.setAlertOwner();
+        DLG.ERROR.setAlertOwner();
+        DLG.WARNING.setAlertOwner();
     }
 
     static void setRoot(FXMLResource fxmlResource) throws IOException {

@@ -1,0 +1,41 @@
+@import "../base.css";
+@import "signup-bundle.properties";
+
+VBox{
+    -fx-background-color: linear-gradient(from 25% 50% to 75% 100%, #34495e, #2c3e50);
+}
+
+Label{
+    -fx-font-family: 'Source Sans Pro', sans-serif;
+    -fx-text-fill: #FFFFFF;
+}
+
+.windowLabel{
+    -fx-font-weight: 700;
+    -fx-font-size: 1.8em;
+
+}
+
+.textfield{
+    -fx-font-family: "Source Sans Pro";
+    -fx-font-size: 1.2em;
+    -fx-font-weight: 200;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #FFFFFF;
+}
+
+.button{
+    -fx-font-family: "Source Sans Pro";
+    -fx-font-size: 1em;
+    -fx-font-weight: 400;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: rgba(127, 140, 141,0.5);
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
+}
+
+.button:hover{
+    -fx-cursor: hand;
+    -fx-background-color: rgba(127, 140, 141,0.75);
+}
+
