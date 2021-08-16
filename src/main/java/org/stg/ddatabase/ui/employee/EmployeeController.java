@@ -219,10 +219,13 @@ public class EmployeeController {
         System.out.println(employeeModel.getFirstName());
         Task<Integer> insertEmployeeTask = employeeService.insertEmployee(employeeModel);
         insertEmployeeTask.setOnSucceeded(workerStateEvent -> {
-            DLG.INFORMATION.setContentText("Η εισαγωγλη του υπαλλήλου πραγματοποιήθηκε με επιτιχία!");
-            DLG.INFORMATION.show();
-            employeesTable.getItems().clear();
-            getAllEmployees();
+            switch (insertEmployeeTask.getValue()){
+                case 201:
+                    DLG.INFORMATION.setContentText("Η εισαγωγλη του υπαλλήλου πραγματοποιήθηκε με επιτιχία!");
+                    DLG.INFORMATION.show();
+                    employeesTable.getItems().clear();
+                    getAllEmployees();
+            }
         });
         insertEmployeeTask.setOnFailed(workerStateEvent -> {
             insertEmployeeTask.getException().printStackTrace();

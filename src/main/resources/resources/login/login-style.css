@@ -41,15 +41,15 @@ AnchorPane{
 }
 
 #usernameTxtField{
-    -fx-background-image:url('../icons-png/user_80px.png');
-    -fx-background-size: 2em;
+    -fx-background-image:url('../icons-png/user_48px.png');
+    -fx-background-size: 1.8em;
     -fx-background-repeat: no-repeat;
     -fx-background-position: left center;
 }
 
 #passwordTxtField{
-    -fx-background-image:url('../icons-png/password_80px.png');
-    -fx-background-size: 2em;
+    -fx-background-image:url('../icons-png/lock_48px.png');
+    -fx-background-size: 1.8em;
     -fx-background-repeat: no-repeat;
     -fx-background-position: left center;
 }

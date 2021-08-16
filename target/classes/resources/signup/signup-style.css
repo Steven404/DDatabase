@@ -12,13 +12,13 @@ Label{
 
 .windowLabel{
     -fx-font-weight: 700;
-    -fx-font-size: 2em;
+    -fx-font-size: 1.8em;
 
 }
 
 .textfield{
     -fx-font-family: "Source Sans Pro";
-    -fx-font-size: 1.4em;
+    -fx-font-size: 1.2em;
     -fx-font-weight: 200;
     -fx-text-fill: #FFFFFF;
     -fx-prompt-text-fill: #FFFFFF;

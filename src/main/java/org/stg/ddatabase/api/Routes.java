@@ -6,7 +6,8 @@ public enum Routes {
     INSERT_EMPLOYEE("http://localhost:3000/api/employees/createEmployee"),
     UPDATE_EMPLOYEE_REST_DAYS("http://localhost:3000/api/employees/updateEmployeeRestDays"),
     DELETE_EMPLOYEE("http://localhost:3000/api/employees/deleteEmployee"),
-    GET_EMPLOYEE_BY_LASTNAME("http://localhost:3000/api/employees/getEmployeeByLastName");
+    GET_EMPLOYEE_BY_LASTNAME("http://localhost:3000/api/employees/getEmployeeByLastName"),
+    SIGN_UP("http://localhost:3000/api/users/createUser");
 
     private final String route;
 
