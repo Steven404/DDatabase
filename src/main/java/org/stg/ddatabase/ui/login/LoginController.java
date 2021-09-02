@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import org.stg.ddatabase.application.DDatabase;
 import org.stg.ddatabase.ui.FXMLResource;
+import org.stg.ddatabase.ui.dialog.DLG;
 import org.stg.ddatabase.ui.dialog.Dialog;
 
 import java.io.IOException;
@@ -82,6 +83,9 @@ public class LoginController {
             loginTask.setOnSucceeded(workerStateEvent -> {
                 Dialog dialog;
                 switch (loginTask.getValue()) {
+                    case 503:
+                        DLG.ERROR.setHeader("ERROR");
+                        DLG.ERROR.setContentText("");
                     case 0:
                         dialog = new Dialog(Alert.AlertType.ERROR, "Error", "Failed to connect to API.");
                         dialog.show();

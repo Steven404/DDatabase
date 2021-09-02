@@ -1,6 +1,5 @@
 package org.stg.ddatabase.ui.signup;
 
-import com.google.gson.Gson;
 import javafx.concurrent.Task;
 import okhttp3.*;
 import org.stg.ddatabase.api.Authentication;
@@ -11,12 +10,11 @@ public class SignupService {
 
     int responseCode;
 
-    Gson gson = new Gson();
-
     protected Task<Integer> signUp(SignupModel signupModel){
         return new Task<Integer>() {
             @Override
             protected Integer call() throws Exception {
+                responseCode=0;
                 RequestBody formBody = new FormBody.Builder()
                         .add("first_name", signupModel.getFirstName())
                         .add("last_name", signupModel.getLastName())

@@ -33,7 +33,7 @@
                         <Font name="SF Pro Display Light" size="12.0" />
                      </font>
                   </JFXPasswordField>
-                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="250.0" spacing="15.0">
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="250.0" spacing="25.0">
                      <children>
                         <JFXButton fx:id="loginButton" prefWidth="80.0" ripplerFill="BLACK" text="%button.login">
                            <font>

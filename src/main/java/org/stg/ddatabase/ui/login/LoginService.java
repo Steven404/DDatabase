@@ -41,6 +41,7 @@ public class LoginService {
                 } catch (IOException e) {
                     e.printStackTrace();
                     DDatabase.getScene().setCursor(Cursor.DEFAULT);
+                    responseCode=450;
                 }
                 return responseCode;
             }

@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import org.stg.ddatabase.application.DDatabase;
@@ -27,7 +28,9 @@ public class SignupController {
     JFXTextField firstnameTextField, lastnameTextField, usernameTextField;
 
     @FXML
-    JFXPasswordField passwordTextField;
+    JFXPasswordField passwordTextField,confirmPasswordTextField;
+
+    String firstname,lastname,username,password,confirmPassword;
 
     @FXML
     public void initialize(){
@@ -46,9 +49,35 @@ public class SignupController {
     }
 
     private void signUp(){
+        firstname = signupModel.getFirstName();
+        lastname = signupModel.getLastName();
+        username = signupModel.getLastName();
+        password = signupModel.getPassword();
+        confirmPassword = signupModel.getPassword();
+        if (firstname == null || firstname.trim().isEmpty() || lastname == null || lastname.trim().isEmpty() || username == null || username.trim().isEmpty() ||
+        password == null || password.trim().isEmpty() || confirmPassword == null || confirmPassword.trim().isEmpty()){
+            DLG.WARNING.setHeader("Προειδοποίηση");
+            DLG.WARNING.setContentText("Παρακαλώ συμπληρώστε όλα τα πεδία.");
+            DLG.WARNING.show();
+            return;
+
+        }
+        if( !confirmPasswordTextField.getText().equals(passwordTextField.getText())){
+            DLG.WARNING.setHeader("Προειδοποίηση");
+            DLG.WARNING.setContentText("Τα πεδία Password και Confirm Password δεν είναι ίδια.");
+            DLG.WARNING.show();
+            return;
+        }
         Task<Integer> signUpTask = signupService.signUp(signupModel);
+        signUpTask.setOnRunning(workerStateEvent -> DDatabase.getScene().setCursor(Cursor.WAIT));
         signUpTask.setOnSucceeded(workerStateEvent -> {
+            System.out.println(signUpTask.getValue());
             switch (signUpTask.getValue()){
+                case 0:
+                    DLG.ERROR.setHeader("Σφάλμα");
+                    DLG.ERROR.setContentText("Σφάλμα σύνδεσης με τον διακομιστή. Επικοινωνήστε με τον διαχειριστή του συστήματος.");
+                    DLG.ERROR.show();
+                    break;
                 case 400:
                     DLG.ERROR.setHeader("Σφάλμα");
                     DLG.ERROR.setContentText("Υπάρχει ήδη χρήστης στο σύστημα με αυτό το username.");
@@ -57,6 +86,7 @@ public class SignupController {
                 case 201:
                     DLG.INFORMATION.setHeader("Πληροφορία");
                     DLG.INFORMATION.setContentText("Επιτυχής δημιουργία χρήστη!");
+                    DLG.INFORMATION.show();
                     break;
             }
         });

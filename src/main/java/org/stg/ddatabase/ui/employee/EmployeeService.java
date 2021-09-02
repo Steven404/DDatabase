@@ -25,6 +25,7 @@ public class EmployeeService {
         return new Task<>() {
             @Override
             protected Integer call() {
+                responseCode=0;
                 DDatabase.getScene().setCursor(Cursor.WAIT);
                 Request request = new Request.Builder()
                         .url(Routes.GET_ALL_EMPLOYEES.getRoute())
@@ -51,6 +52,7 @@ public class EmployeeService {
         return new Task<>() {
             @Override
             protected Integer call() {
+                responseCode=0;
                 DDatabase.getScene().setCursor(Cursor.WAIT);
                 RequestBody formBody = new FormBody.Builder()
                         .add("FirstName", employeeModel.getFirstName())
@@ -85,6 +87,7 @@ public class EmployeeService {
         return new Task<>() {
             @Override
             protected Integer call() {
+                responseCode=0;
                 DDatabase.getScene().setCursor(Cursor.WAIT);
                 RequestBody formBody = new FormBody.Builder()
                         .add("ID", String.valueOf(employeeModel.getID()))
@@ -115,6 +118,7 @@ public class EmployeeService {
         return new Task<>() {
             @Override
             protected Integer call() {
+                responseCode=0;
                 DDatabase.getScene().setCursor(Cursor.WAIT);
                 FormBody formBody = new FormBody.Builder()
                         .add("ID", String.valueOf(employeeModel.getID()))
@@ -141,6 +145,7 @@ public class EmployeeService {
         return new Task<>() {
             @Override
             protected Integer call() {
+                responseCode=0;
                 DDatabase.getScene().setCursor(Cursor.WAIT);
                 FormBody formBody = new FormBody.Builder()
                         .add("ID", String.valueOf(employeeModel.getID()))
@@ -151,8 +156,6 @@ public class EmployeeService {
                         .delete(formBody)
                         .build();
                 try (Response response = client.newCall(request).execute()) {
-                    System.out.println(response.body().string());
-                    System.out.println("wtf inside task");
                     responseCode = response.code();
                     DDatabase.getScene().setCursor(Cursor.DEFAULT);
                 } catch (IOException e) {
