@@ -207,8 +207,7 @@ public class EmployeeController {
         LocalDate recruitDate = recruitmentDatePicker.getValue();
         LocalDate untilDate = untilDatePicker.getValue();
         if (employeeModel.getFirstName().equals("") || employeeModel.getLastName().equals("") || employeeModel.getFatherName().equals("") || untilDate == null ||
-                recruitDate == null || employeeModel.getEmail().equals("") || employeeModel.getAFM().equals("") || employeeModel.getAMKA().equals("") ||
-                employeeModel.getIBAN().equals("")) {
+                recruitDate == null || employeeModel.getEmail().equals("") || employeeModel.getAFM().equals("") || employeeModel.getAMKA().equals("")) {
             DLG.WARNING.setHeader("Προειδοποίηση");
             DLG.WARNING.setContentText("Ένα ή περισσότερα πεδία είναι κενά. Παρακαλώ συμπληρώστε όλα τα πεδία πριν πραγματοποιήσετε την εισαγωγή υπαλλήλου!");
             DLG.WARNING.show();

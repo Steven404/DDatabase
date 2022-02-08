@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import org.stg.ddatabase.application.DDatabase;
 import org.stg.ddatabase.ui.FXMLResource;
 import org.stg.ddatabase.ui.dialog.DLG;
@@ -20,6 +21,9 @@ import java.util.ResourceBundle;
 public class SignupController {
     SignupModel signupModel = new SignupModel();
     SignupService signupService = new SignupService();
+
+    @FXML
+    ScrollPane scrollPane;
 
     @FXML
     JFXButton signupButton,returnButton;
@@ -71,19 +75,23 @@ public class SignupController {
         Task<Integer> signUpTask = signupService.signUp(signupModel);
         signUpTask.setOnRunning(workerStateEvent -> DDatabase.getScene().setCursor(Cursor.WAIT));
         signUpTask.setOnSucceeded(workerStateEvent -> {
-            System.out.println(signUpTask.getValue());
             switch (signUpTask.getValue()){
                 case 0:
                     DLG.ERROR.setHeader("Σφάλμα");
                     DLG.ERROR.setContentText("Σφάλμα σύνδεσης με τον διακομιστή. Επικοινωνήστε με τον διαχειριστή του συστήματος.");
                     DLG.ERROR.show();
                     break;
-                case 400:
+                case 501:
                     DLG.ERROR.setHeader("Σφάλμα");
                     DLG.ERROR.setContentText("Υπάρχει ήδη χρήστης στο σύστημα με αυτό το username.");
                     DLG.ERROR.show();
                     break;
-                case 201:
+                case 403:
+                    DLG.ERROR.setHeader("Σφάλμα");
+                    DLG.ERROR.setContentText("Δεν μπορείτε να χρησιμοποιήσεται Username διαχειριστή!");
+                    DLG.ERROR.show();
+                    break;
+                case 200:
                     DLG.INFORMATION.setHeader("Πληροφορία");
                     DLG.INFORMATION.setContentText("Επιτυχής δημιουργία χρήστη!");
                     DLG.INFORMATION.show();

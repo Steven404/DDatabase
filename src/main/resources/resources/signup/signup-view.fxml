@@ -5,15 +5,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="600.0" prefWidth="400.0" stylesheets="@signup-style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stg.ddatabase.ui.signup.SignupController">
+<ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefHeight="600.0" prefWidth="400.0" stylesheets="@signup-style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stg.ddatabase.ui.signup.SignupController">
    <content>
-      <VBox alignment="CENTER" fillWidth="false" prefHeight="400.0" prefWidth="600.0">
+      <VBox alignment="CENTER" fillWidth="false" prefHeight="395.0" prefWidth="595.0">
          <children>
             <Label alignment="CENTER" styleClass="windowLabel" text="%label.signup">
                <padding>
                   <Insets top="20.0" />
                </padding></Label>
-            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0" spacing="20.0">
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="395.0" spacing="20.0">
                <children>
                   <JFXTextField fx:id="firstnameTextField" alignment="CENTER" focusColor="#7f8c8d" labelFloat="true" promptText="%textfield.firstname" styleClass="textfield" unFocusColor="WHITE">
                      <HBox.margin>
@@ -25,7 +25,7 @@
                   <Insets top="50.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0" spacing="20.0">
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="395.0" spacing="20.0">
                <children>
                   <JFXTextField fx:id="lastnameTextField" alignment="CENTER" focusColor="#7f8c8d" labelFloat="true" promptText="%textfield.lastname" styleClass="textfield" unFocusColor="WHITE">
                      <HBox.margin>
@@ -34,7 +34,7 @@
                   </JFXTextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0" spacing="20.0">
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="395.0" spacing="20.0">
                <children>
                   <JFXTextField fx:id="usernameTextField" alignment="CENTER" focusColor="#7f8c8d" labelFloat="true" promptText="%textfield.username" styleClass="textfield" unFocusColor="WHITE">
                      <HBox.margin>
@@ -43,12 +43,12 @@
                   </JFXTextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0" spacing="20.0">
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="395.0" spacing="20.0">
                <children>
                   <JFXPasswordField fx:id="passwordTextField" alignment="CENTER" focusColor="#7f8c8d" promptText="%textfield.password" styleClass="textfield" unFocusColor="WHITE" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="360.0" prefHeight="76.0" prefWidth="400.0" spacing="20.0">
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="360.0" prefHeight="76.0" prefWidth="395.0" spacing="20.0">
                <children>
                   <JFXPasswordField fx:id="confirmPasswordTextField" alignment="CENTER" focusColor="#7f8c8d" promptText="%textfield.confirmpassword" styleClass="textfield" unFocusColor="WHITE" />
                </children>

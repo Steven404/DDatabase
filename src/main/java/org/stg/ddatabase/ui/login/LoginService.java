@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import javafx.concurrent.Task;
 import javafx.scene.Cursor;
 import okhttp3.*;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.stg.ddatabase.api.Authentication;
 import org.stg.ddatabase.api.Routes;
@@ -41,7 +42,10 @@ public class LoginService {
                 } catch (IOException e) {
                     e.printStackTrace();
                     DDatabase.getScene().setCursor(Cursor.DEFAULT);
-                    responseCode=450;
+                    responseCode=405;
+                } catch (JSONException e){
+                    e.printStackTrace();
+                    return  responseCode;
                 }
                 return responseCode;
             }

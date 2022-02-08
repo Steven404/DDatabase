@@ -120,7 +120,7 @@ public class LoginController {
                         usernameTxtField.setDisable(false);
                         break;
                     case 405:
-                        dialog = new Dialog(Alert.AlertType.ERROR, "Error", "Failed connecting to the database. Please check if MySQL is running!");
+                        dialog = new Dialog(Alert.AlertType.ERROR, "Error", "Failed connecting to the database. Please check if apache server and MySQL are running!");
                         dialog.show();
                         signupButton.setDisable(false);
                         loginButton.setDisable(false);
@@ -130,8 +130,10 @@ public class LoginController {
                 }
             });
             loginTask.setOnFailed(workerStateEvent -> {
+                DDatabase.getScene().setCursor(Cursor.DEFAULT);
                 Dialog dialog = new Dialog(Alert.AlertType.ERROR, "Error", "Failed to run the task");
                 dialog.show();
+                loginTask.getException().printStackTrace();
                 signupButton.setDisable(false);
                 loginButton.setDisable(false);
                 passwordTxtField.setDisable(false);
@@ -168,6 +170,9 @@ public class LoginController {
         Scene scene = new Scene(loadFXML(FXMLResource.EMPLOYEE));
         DDatabase.getMainStage().setScene(scene);
         DDatabase.getMainStage().show();
+        scene.getWindow().setWidth(1000);
+        scene.getWindow().setHeight(600);
+        DDatabase.getMainStage().centerOnScreen();
     }
 
     private void switchToSignUpView() throws IOException {
